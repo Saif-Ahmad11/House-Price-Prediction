@@ -1,0 +1,99 @@
+{% extends "parent.html" %}
+{% block main %}
+<!-- Prediction Form -->
+<div class="prediction-section mt-5">
+
+    <div class="text-center mb-4">
+        <h2 class="fw-bold text-danger">
+            Predict House Price
+        </h2>
+
+        <p>
+            Enter house details below
+        </p>
+    </div>
+    <form class="form-group" method="post">
+        {% csrf_token %}
+       {% if result %}
+<div class="row justify-content-center mt-4">
+
+    <div class="col-md-8">
+
+        <div class="card shadow-lg border-0">
+
+            <div class="card-body text-center p-4">
+
+                <h4 class="text-success fw-bold mb-3">
+                    Prediction Result
+                </h4>
+
+                <h2 class="text-danger fw-bold">
+                    ₹ {{ result }}
+                </h2>
+
+                <p class="text-muted mt-2">
+                    Estimated House Price
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endif %}
+        <div class="row">
+
+            <div class="col-md-6 mb-3">
+                <label>MedInc</label>
+                <input type="text" class="form-control" placeholder="Enter MedInc" name="medinc">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label>HouseAge</label>
+                <input type="text" class="form-control" placeholder="Enter HouseAge" name="houseage">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label>Rooms</label>
+                <input type="text" class="form-control" placeholder="Average number of rooms" name="averooms">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label>Bedrooms</label>
+                <input type="text" class="form-control" placeholder="Average number of bedrooms" name="avebedrms">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label>Population</label>
+                <input type="text" class="form-control" placeholder="Enter population" name="population">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label>Occupation</label>
+                <input type="text" class="form-control" placeholder="Enter Occupation" name="aveoccup">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label>Latitude</label>
+                <input type="text" class="form-control" placeholder="Enter Latitude" name="latitude">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label>Longitude</label>
+                <input type="text" class="form-control" placeholder="Enter Longitude" name="longitude">
+            </div>
+
+            <div class="col-md-12 text-center mt-3">
+                <button type="submit" class="btn btn-danger btn-lg px-5">
+                    Predict Price
+                </button>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+</div>
+{% endblock main %}
